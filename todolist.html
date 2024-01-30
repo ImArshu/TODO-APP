@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="todo.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="h1">ToDo List</h1>
+        
+        <div id="inputs">
+            <input type="text" placeholder="Enter Your Task" id="inp">
+            <button id="btn" onclick="add()">ADD</button>
+        </div>
+        
+        <div class="text"></div>
+    </div>
+
+    <script>
+        let inputs = document.getElementById("inp")
+        let text = document.querySelector(".text")
+        let taskId = 1
+
+        function add() {
+            if (inputs.value === "") {
+                alert("Please Enter Your Task");
+            } else {
+                let newCard = document.createElement("div");
+                newCard.setAttribute("id", "taskCard");
+                newCard.innerHTML = `<strong>Remaining Tasks ${taskId}:</strong> ${inputs.value}`;
+                text.appendChild(newCard);
+                taskId++;
+                inputs.value = "";
+            }
+        }
+    </script>
+</body>
+</html>
